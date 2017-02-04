@@ -26,12 +26,12 @@ int __fastcall SMSG_WARDEN_DATA_HandlerDetour(int a1, int opcode, int a3, int pD
 				//MODULE_CHECK - tested
 				VirtualProtect((void*)(wardenModule + 0x309F), 1, 0x40, &oldPFlags);
 				*(byte*)(wardenModule + 0x309F) = 0xE9;
-				//DRIVER_CHECK
-				VirtualProtect((void*)(wardenModule + 0x33D1), 1, 0x40, &oldPFlags);
-				*(byte*)(wardenModule + 0x33D1) = 0;
-				//PAGE_CHECK_A, PAGE_CHECK_B - not tested (added thanks to prospectingemu)
-				VirtualProtect((void*)(wardenModule + 0x12AD), 1, 0x40, &oldPFlags);
-				*(byte*)(wardenModule + 0x12AD) = 0;
+				////DRIVER_CHECK
+				//VirtualProtect((void*)(wardenModule + 0x33D1), 1, 0x40, &oldPFlags);
+				//*(byte*)(wardenModule + 0x33D1) = 0;
+				////PAGE_CHECK_A, PAGE_CHECK_B - not tested (added thanks to prospectingemu)
+				//VirtualProtect((void*)(wardenModule + 0x12AD), 1, 0x40, &oldPFlags);
+				//*(byte*)(wardenModule + 0x12AD) = 0;    //WARNING! Some servers give bans here!
 
 				auto det = g_memops["WardenScanDetour"];
 				if (det != nullptr)
